@@ -20,21 +20,6 @@ df = load_data()
 st.sidebar.title("📊 Dashboard")
 option = st.sidebar.radio("Select", ["Overall", "Startup", "Investor"])
 
-city = st.sidebar.multiselect(
-    "Select City",
-    df["city"].dropna().unique()
-)
-df["year"] = pd.to_datetime(df["date"], errors='coerce').dt.year
-
-year = st.sidebar.multiselect(
-    "Select Year",
-    sorted(df["year"].dropna().unique())
-)
-startup = st.sidebar.multiselect(
-    "Select Startup",
-    df["startup"].dropna().unique()
-)
-
 # ---------------- OVERALL ----------------
 def overall():
     st.title("📊 Overall Dashboard")
